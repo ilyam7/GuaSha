@@ -1,0 +1,57 @@
+<section class="section testimonials">
+  <div class="container">
+    <header class="section__header">
+      {%- if section.settings.heading != blank -%}
+        <h2 class="section__heading">{{ section.settings.heading | escape }}</h2>
+      {%- endif -%}
+    </header>
+
+    <ul class="testimonial-grid" role="list">
+      {%- for block in section.blocks -%}
+        <li class="testimonial" {{ block.shopify_attributes }}>
+          <p class="testimonial__quote">&ldquo;{{ block.settings.quote | escape }}&rdquo;</p>
+          <p class="testimonial__author">— {{ block.settings.author | escape }}{% if block.settings.detail != blank %}, <span>{{ block.settings.detail | escape }}</span>{% endif %}</p>
+          {%- if block.settings.rating > 0 -%}
+            <p class="testimonial__rating" aria-label="{{ block.settings.rating }} out of 5 stars">
+              {%- for i in (1..5) -%}
+                {%- if i <= block.settings.rating -%}★{%- else -%}☆{%- endif -%}
+              {%- endfor -%}
+            </p>
+          {%- endif -%}
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Testimonials",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Wagging recommendations" }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonial",
+      "settings": [
+        { "type": "textarea", "id": "quote", "label": "Quote", "default": "Sturdy, well-made, and arrived quickly. Our pup loves it." },
+        { "type": "text", "id": "author", "label": "Author", "default": "Jamie R." },
+        { "type": "text", "id": "detail", "label": "Detail", "default": "Beagle parent" },
+        { "type": "range", "id": "rating", "label": "Rating", "min": 0, "max": 5, "step": 1, "default": 5 }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [
+    {
+      "name": "Testimonials",
+      "blocks": [
+        { "type": "testimonial" },
+        { "type": "testimonial", "settings": { "quote": "Finally a leash that holds up to my husky's pulling.", "author": "Priya S.", "detail": "Husky parent" } },
+        { "type": "testimonial", "settings": { "quote": "Great quality and fair prices. Will reorder.", "author": "Marcus T.", "detail": "Cat parent" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,42 @@
+<section class="section">
+  <div class="container container--narrow">
+    <header class="section__header" style="text-align:left;">
+      <p class="section__eyebrow">Policies</p>
+      <h1 class="section__heading">{{ page.title | default: 'Shipping & returns' }}</h1>
+    </header>
+
+    {%- if page.content != blank -%}
+      <div class="rte">{{ page.content }}</div>
+    {%- else -%}
+      <div class="rte">
+        <h2>Shipping</h2>
+        <p>We ship from our U.S. warehouse Monday through Friday. Orders placed before 1pm ET typically ship the same day; otherwise the next business day.</p>
+        <ul>
+          <li><strong>Standard (3-7 business days):</strong> $5 flat, free over $40.</li>
+          <li><strong>Expedited (2-3 business days):</strong> calculated at checkout.</li>
+          <li><strong>Tracking:</strong> emailed automatically as soon as your order ships.</li>
+        </ul>
+        <p>We currently ship within the United States, including AK and HI (extra time may apply). International shipping is coming soon.</p>
+
+        <h2>Returns &amp; exchanges</h2>
+        <p>We want every pet parent to feel good about their purchase. If something isn't right:</p>
+        <ul>
+          <li>You have <strong>30 days</strong> from delivery to request a return or exchange.</li>
+          <li>Items must be unused, clean, and in their original packaging.</li>
+          <li>Sale items and personalized products are final sale.</li>
+        </ul>
+        <p>To start a return, email <a href="mailto:hello@pawessentials.com">hello@pawessentials.com</a> with your order number. We'll send a prepaid label and process your refund within 5 business days of receiving the item.</p>
+
+        <h2>Damaged or wrong items</h2>
+        <p>If your order arrives damaged or you received the wrong product, email us within 7 days with a photo and your order number. We'll make it right at no cost to you.</p>
+
+        <h2>Questions?</h2>
+        <p>Reach out any time at <a href="mailto:hello@pawessentials.com">hello@pawessentials.com</a> — we typically reply within one business day.</p>
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{ "name": "Shipping page", "settings": [] }
+{% endschema %}

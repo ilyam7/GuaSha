@@ -1,0 +1,23 @@
+<section class="section main-article">
+  <div class="container container--narrow">
+    <header class="section__header" style="text-align:left;">
+      <p class="section__eyebrow">{{ article.published_at | date: '%B %-d, %Y' }}</p>
+      <h1 class="section__heading">{{ article.title }}</h1>
+      {%- if article.author != blank -%}
+        <p class="section__description">By {{ article.author }}</p>
+      {%- endif -%}
+    </header>
+
+    {%- if article.image -%}
+      <div style="margin: 0 0 32px;">
+        {{ article.image | image_url: width: 1400 | image_tag: alt: article.title, loading: 'eager' }}
+      </div>
+    {%- endif -%}
+
+    <div class="rte">{{ article.content }}</div>
+  </div>
+</section>
+
+{% schema %}
+{ "name": "Article", "settings": [] }
+{% endschema %}

@@ -1,0 +1,78 @@
+<section class="section">
+  <div class="container container--narrow">
+    <header class="section__header">
+      <p class="section__eyebrow">FAQ</p>
+      <h1 class="section__heading">{{ page.title | default: 'Frequently asked questions' }}</h1>
+    </header>
+
+    {%- if page.content != blank -%}
+      <div class="rte">{{ page.content }}</div>
+    {%- endif -%}
+
+    <div class="faq-list">
+      {%- for block in section.blocks -%}
+        <details class="faq-item" {{ block.shopify_attributes }}>
+          <summary>{{ block.settings.question | escape }}</summary>
+          <div class="rte">{{ block.settings.answer }}</div>
+        </details>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+<style>
+  .faq-list { margin-top: 16px; }
+  .faq-item {
+    border-bottom: 1px solid var(--color-border);
+    padding: 16px 0;
+  }
+  .faq-item summary {
+    cursor: pointer;
+    font-weight: 600;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::after {
+    content: '+';
+    font-size: 1.4rem;
+    color: var(--color-muted);
+    transition: transform .2s ease;
+  }
+  .faq-item[open] summary::after { transform: rotate(45deg); }
+  .faq-item .rte { margin-top: 12px; color: var(--color-muted); }
+</style>
+
+{% schema %}
+{
+  "name": "FAQ",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "qa",
+      "name": "Question",
+      "settings": [
+        { "type": "text", "id": "question", "label": "Question" },
+        { "type": "richtext", "id": "answer", "label": "Answer" }
+      ]
+    }
+  ],
+  "max_blocks": 30,
+  "presets": [
+    {
+      "name": "FAQ",
+      "blocks": [
+        { "type": "qa", "settings": { "question": "How long does shipping take?", "answer": "<p>Most U.S. orders ship within 1 business day and arrive in 3-7 business days. You'll get a tracking number by email as soon as your order leaves the warehouse.</p>" } },
+        { "type": "qa", "settings": { "question": "Can I return or exchange a product?", "answer": "<p>Yes — we offer a no-fuss 30-day return policy on unused items in original packaging. See our Shipping & Returns page for details.</p>" } },
+        { "type": "qa", "settings": { "question": "How do I find the right size for my pet?", "answer": "<p>Each product page includes a sizing guide. If you're between sizes or unsure, email us with your pet's measurements and we'll recommend the best fit.</p>" } },
+        { "type": "qa", "settings": { "question": "Do you ship internationally?", "answer": "<p>We currently ship within the United States. International shipping is on our roadmap — sign up for our newsletter to hear when it launches.</p>" } },
+        { "type": "qa", "settings": { "question": "Is my payment information secure?", "answer": "<p>Absolutely. Payments are processed through Shopify's PCI-compliant checkout with end-to-end encryption. We never see or store your card details.</p>" } },
+        { "type": "qa", "settings": { "question": "How do I contact you?", "answer": "<p>Email <a href=\"mailto:hello@pawessentials.com\">hello@pawessentials.com</a> or use our <a href=\"/pages/contact\">contact form</a>. We reply within one business day.</p>" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,23 @@
+{
+  "type": "footer",
+  "name": "Footer group",
+  "sections": {
+    "newsletter": {
+      "type": "newsletter",
+      "settings": {
+        "heading": "Treats in your inbox",
+        "subheading": "Sign up for new arrivals, care guides, and 10% off your first order."
+      }
+    },
+    "footer": {
+      "type": "footer",
+      "settings": {
+        "menu_shop": "footer-shop",
+        "menu_help": "footer-help",
+        "menu_company": "footer-company",
+        "tagline": "Practical, everyday accessories for the pets we love."
+      }
+    }
+  },
+  "order": ["newsletter", "footer"]
+}

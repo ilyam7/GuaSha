@@ -1,0 +1,29 @@
+{
+  "current": {
+    "logo_width": 140,
+    "color_background": "#FAFAF7",
+    "color_text": "#1A1A1A",
+    "color_muted": "#6B6B6B",
+    "color_accent": "#2E7D5B",
+    "color_accent_contrast": "#FFFFFF",
+    "color_border": "#E6E4DD",
+    "container_width": 1280,
+    "corner_radius": 8,
+    "social_instagram": "",
+    "social_facebook": "",
+    "social_tiktok": ""
+  },
+  "presets": {
+    "PawEssentials": {
+      "logo_width": 140,
+      "color_background": "#FAFAF7",
+      "color_text": "#1A1A1A",
+      "color_muted": "#6B6B6B",
+      "color_accent": "#2E7D5B",
+      "color_accent_contrast": "#FFFFFF",
+      "color_border": "#E6E4DD",
+      "container_width": 1280,
+      "corner_radius": 8
+    }
+  }
+}

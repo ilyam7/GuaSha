@@ -1,0 +1,17 @@
+{
+  "sections": {
+    "main": {
+      "type": "page-faq",
+      "blocks": {
+        "q1": { "type": "qa", "settings": { "question": "How long does shipping take?", "answer": "<p>Most U.S. orders ship within 1 business day and arrive in 3-7 business days. You'll get a tracking number by email as soon as your order leaves the warehouse.</p>" } },
+        "q2": { "type": "qa", "settings": { "question": "Can I return or exchange a product?", "answer": "<p>Yes — we offer a no-fuss 30-day return policy on unused items in original packaging. See our Shipping &amp; Returns page for details.</p>" } },
+        "q3": { "type": "qa", "settings": { "question": "How do I find the right size for my pet?", "answer": "<p>Each product page includes a sizing guide. If you're between sizes or unsure, email us with your pet's measurements and we'll recommend the best fit.</p>" } },
+        "q4": { "type": "qa", "settings": { "question": "Do you ship internationally?", "answer": "<p>We currently ship within the United States. International shipping is on our roadmap — sign up for our newsletter to hear when it launches.</p>" } },
+        "q5": { "type": "qa", "settings": { "question": "Is my payment information secure?", "answer": "<p>Absolutely. Payments are processed through Shopify's PCI-compliant checkout with end-to-end encryption. We never see or store your card details.</p>" } },
+        "q6": { "type": "qa", "settings": { "question": "How do I contact you?", "answer": "<p>Email <a href=\"mailto:hello@pawessentials.com\">hello@pawessentials.com</a> or use our <a href=\"/pages/contact\">contact form</a>. We reply within one business day.</p>" } }
+      },
+      "block_order": ["q1", "q2", "q3", "q4", "q5", "q6"]
+    }
+  },
+  "order": ["main"]
+}

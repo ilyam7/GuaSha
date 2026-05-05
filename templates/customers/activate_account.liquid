@@ -1,0 +1,17 @@
+<section class="section">
+  <div class="container container--narrow">
+    <h1 class="section__heading" style="text-align:center;">Activate your account</h1>
+    {% form 'activate_customer_password' %}
+      {{ form.errors | default_errors }}
+      <div class="form-row">
+        <label for="ActivatePassword">Password</label>
+        <input type="password" name="customer[password]" id="ActivatePassword" required>
+      </div>
+      <div class="form-row">
+        <label for="ActivateConfirm">Confirm password</label>
+        <input type="password" name="customer[password_confirmation]" id="ActivateConfirm" required>
+      </div>
+      <button type="submit" class="btn btn--primary btn--block">Activate</button>
+    {% endform %}
+  </div>
+</section>

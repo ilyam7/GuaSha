@@ -1,0 +1,80 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero",
+      "settings": {
+        "eyebrow": "Pet accessories made simple",
+        "heading": "Everything your pet needs, none of what they don't.",
+        "subheading": "Thoughtfully chosen everyday essentials for dogs, cats, and small companions — built to last and priced fairly.",
+        "primary_label": "Shop bestsellers",
+        "primary_link": "shopify://collections/bestsellers",
+        "secondary_label": "Browse all",
+        "secondary_link": "shopify://collections/all",
+        "text_align": "left",
+        "overlay_opacity": 30,
+        "min_height": 560
+      }
+    },
+    "trust": {
+      "type": "trust-badges",
+      "blocks": {
+        "b1": { "type": "badge", "settings": { "icon": "shipping", "title": "Free shipping over $40", "body": "Fast, tracked delivery on qualifying orders across the U.S." } },
+        "b2": { "type": "badge", "settings": { "icon": "returns",  "title": "30-day easy returns", "body": "Not the right fit? Send it back, no fuss." } },
+        "b3": { "type": "badge", "settings": { "icon": "support",  "title": "Real human support", "body": "Email us — we reply within one business day." } },
+        "b4": { "type": "badge", "settings": { "icon": "secure",   "title": "Secure checkout", "body": "Encrypted payments. Your details stay safe." } }
+      },
+      "block_order": ["b1", "b2", "b3", "b4"],
+      "settings": {
+        "heading": "Why pet parents choose us",
+        "description": "Real product testing, fair pricing, and human support — every step from checkout to delivery.",
+        "background": "#F1EFE8"
+      }
+    },
+    "featured": {
+      "type": "featured-collection",
+      "settings": {
+        "eyebrow": "Bestsellers",
+        "heading": "Everyday essentials, loved by every tail",
+        "description": "Tried, tested, and approved by real pets and their humans.",
+        "products_to_show": 4,
+        "show_view_all": true
+      }
+    },
+    "shop-by-pet": {
+      "type": "collection-list",
+      "blocks": {
+        "c1": { "type": "collection", "settings": { "title": "For dogs" } },
+        "c2": { "type": "collection", "settings": { "title": "For cats" } },
+        "c3": { "type": "collection", "settings": { "title": "Small pets" } },
+        "c4": { "type": "collection", "settings": { "title": "Travel & on-the-go" } }
+      },
+      "block_order": ["c1", "c2", "c3", "c4"],
+      "settings": {
+        "heading": "Shop by pet",
+        "description": "Find essentials curated for each kind of companion."
+      }
+    },
+    "image-with-text": {
+      "type": "image-with-text",
+      "settings": {
+        "layout": "left",
+        "eyebrow": "Our promise",
+        "heading": "Built around real life with pets",
+        "body": "<p>We curate every product the same way we'd shop for our own pets — practical, durable, and fairly priced. If something doesn't work for your companion, we'll make it right.</p>",
+        "button_label": "Read our story",
+        "button_link": "/pages/about"
+      }
+    },
+    "testimonials": {
+      "type": "testimonials",
+      "blocks": {
+        "t1": { "type": "testimonial", "settings": { "quote": "Sturdy, well-made, and arrived quickly. Our pup loves it.", "author": "Jamie R.", "detail": "Beagle parent", "rating": 5 } },
+        "t2": { "type": "testimonial", "settings": { "quote": "Finally a leash that holds up to my husky's pulling.", "author": "Priya S.", "detail": "Husky parent", "rating": 5 } },
+        "t3": { "type": "testimonial", "settings": { "quote": "Great quality and fair prices. Will reorder.", "author": "Marcus T.", "detail": "Cat parent", "rating": 5 } }
+      },
+      "block_order": ["t1", "t2", "t3"],
+      "settings": { "heading": "Wagging recommendations" }
+    }
+  },
+  "order": ["hero", "trust", "featured", "shop-by-pet", "image-with-text", "testimonials"]
+}

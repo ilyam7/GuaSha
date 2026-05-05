@@ -1,0 +1,12 @@
+<section class="section">
+  <div class="container">
+    <h1 class="section__heading">Your addresses</h1>
+    {%- paginate customer.addresses by 6 -%}
+      {%- for address in customer.addresses -%}
+        <div style="padding:16px 0;border-bottom:1px solid var(--color-border);">
+          {{ address | format_address }}
+        </div>
+      {%- endfor -%}
+    {%- endpaginate -%}
+  </div>
+</section>

@@ -1,0 +1,65 @@
+<section class="section collection-list">
+  <div class="container">
+    <header class="section__header">
+      {%- if section.settings.heading != blank -%}
+        <h2 class="section__heading">{{ section.settings.heading | escape }}</h2>
+      {%- endif -%}
+      {%- if section.settings.description != blank -%}
+        <p class="section__description">{{ section.settings.description | escape }}</p>
+      {%- endif -%}
+    </header>
+
+    <ul class="collection-grid" role="list">
+      {%- for block in section.blocks -%}
+        {%- assign collection = collections[block.settings.collection] -%}
+        <li class="collection-card" {{ block.shopify_attributes }}>
+          <a href="{{ collection.url | default: '#' }}" class="collection-card__link">
+            <div class="collection-card__media">
+              {%- if block.settings.image != blank -%}
+                {{ block.settings.image | image_url: width: 800 | image_tag: loading: 'lazy', alt: collection.title }}
+              {%- elsif collection.featured_image != blank -%}
+                {{ collection.featured_image | image_url: width: 800 | image_tag: loading: 'lazy', alt: collection.title }}
+              {%- else -%}
+                {{ 'collection-1' | placeholder_svg_tag }}
+              {%- endif -%}
+            </div>
+            <h3 class="collection-card__title">{{ block.settings.title | default: collection.title | default: 'Collection' }}</h3>
+          </a>
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Collection list",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Shop by pet" },
+    { "type": "textarea", "id": "description", "label": "Description", "default": "Find essentials curated for each kind of companion." }
+  ],
+  "blocks": [
+    {
+      "type": "collection",
+      "name": "Collection",
+      "settings": [
+        { "type": "collection", "id": "collection", "label": "Collection" },
+        { "type": "image_picker", "id": "image", "label": "Custom image (optional)" },
+        { "type": "text", "id": "title", "label": "Custom title (optional)" }
+      ]
+    }
+  ],
+  "max_blocks": 8,
+  "presets": [
+    {
+      "name": "Collection list",
+      "blocks": [
+        { "type": "collection", "settings": { "title": "For dogs" } },
+        { "type": "collection", "settings": { "title": "For cats" } },
+        { "type": "collection", "settings": { "title": "Small pets" } },
+        { "type": "collection", "settings": { "title": "Travel & on-the-go" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
