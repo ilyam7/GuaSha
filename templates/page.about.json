@@ -1,0 +1,16 @@
+{
+  "sections": {
+    "main": { "type": "page-about" },
+    "trust": {
+      "type": "trust-badges",
+      "blocks": {
+        "b1": { "type": "badge", "settings": { "icon": "paw", "title": "Pet-tested", "body": "Every product reviewed by real pets and their humans before we sell it." } },
+        "b2": { "type": "badge", "settings": { "icon": "leaf", "title": "Built to last", "body": "Materials and construction we'd trust with our own pets." } },
+        "b3": { "type": "badge", "settings": { "icon": "support", "title": "Real human support", "body": "A small team replying to emails — usually the same day." } }
+      },
+      "block_order": ["b1", "b2", "b3"],
+      "settings": { "heading": "What we stand for", "background": "#F1EFE8" }
+    }
+  },
+  "order": ["main", "trust"]
+}

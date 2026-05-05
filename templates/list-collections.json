@@ -1,0 +1,9 @@
+{
+  "sections": {
+    "main": {
+      "type": "collection-list",
+      "settings": { "heading": "All collections", "description": "Browse essentials by pet, occasion, and more." }
+    }
+  },
+  "order": ["main"]
+}

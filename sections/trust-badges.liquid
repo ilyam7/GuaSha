@@ -1,0 +1,79 @@
+<section class="section trust-badges" style="background: {{ section.settings.background }};">
+  <div class="container">
+    <header class="section__header">
+      {%- if section.settings.heading != blank -%}
+        <h2 class="section__heading">{{ section.settings.heading | escape }}</h2>
+      {%- endif -%}
+      {%- if section.settings.description != blank -%}
+        <p class="section__description">{{ section.settings.description | escape }}</p>
+      {%- endif -%}
+    </header>
+
+    <ul class="trust-grid" role="list">
+      {%- for block in section.blocks -%}
+        <li class="trust-card" {{ block.shopify_attributes }}>
+          <div class="trust-card__icon">
+            {%- case block.settings.icon -%}
+              {%- when 'shipping' -%}{% render 'icon-truck' %}
+              {%- when 'returns' -%}{% render 'icon-rotate' %}
+              {%- when 'support' -%}{% render 'icon-chat' %}
+              {%- when 'secure' -%}{% render 'icon-shield' %}
+              {%- when 'paw' -%}{% render 'icon-paw' %}
+              {%- when 'leaf' -%}{% render 'icon-leaf' %}
+              {%- else -%}{% render 'icon-paw' %}
+            {%- endcase -%}
+          </div>
+          <h3 class="trust-card__title">{{ block.settings.title | escape }}</h3>
+          <p class="trust-card__body">{{ block.settings.body | escape }}</p>
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Trust badges",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Why pet parents choose us" },
+    { "type": "textarea", "id": "description", "label": "Description", "default": "Real product testing, fair pricing, and human support — every step from checkout to delivery." },
+    { "type": "color", "id": "background", "label": "Background", "default": "#F1EFE8" }
+  ],
+  "blocks": [
+    {
+      "type": "badge",
+      "name": "Badge",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "default": "shipping",
+          "options": [
+            { "value": "shipping", "label": "Free shipping" },
+            { "value": "returns", "label": "Easy returns" },
+            { "value": "support", "label": "Friendly support" },
+            { "value": "secure", "label": "Secure checkout" },
+            { "value": "paw", "label": "Paw" },
+            { "value": "leaf", "label": "Leaf" }
+          ]
+        },
+        { "type": "text", "id": "title", "label": "Title", "default": "Free shipping over $40" },
+        { "type": "textarea", "id": "body", "label": "Body", "default": "Fast, tracked delivery on qualifying orders across the U.S." }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [
+    {
+      "name": "Trust badges",
+      "blocks": [
+        { "type": "badge", "settings": { "icon": "shipping", "title": "Free shipping over $40", "body": "Fast, tracked delivery on qualifying orders." } },
+        { "type": "badge", "settings": { "icon": "returns", "title": "30-day easy returns", "body": "Not the right fit? Send it back, no fuss." } },
+        { "type": "badge", "settings": { "icon": "support", "title": "Real human support", "body": "Email us — we reply within one business day." } },
+        { "type": "badge", "settings": { "icon": "secure", "title": "Secure checkout", "body": "Encrypted payments. Your details stay safe." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

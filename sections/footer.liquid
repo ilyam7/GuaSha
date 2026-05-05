@@ -1,0 +1,83 @@
+<footer class="site-footer">
+  <div class="container site-footer__inner">
+    <div class="site-footer__brand">
+      <a class="site-footer__logo" href="{{ routes.root_url }}">
+        {%- if settings.logo != blank -%}
+          <img src="{{ settings.logo | image_url: width: 320 }}" alt="{{ shop.name | escape }}" width="120" height="auto">
+        {%- else -%}
+          <span class="site-footer__wordmark">{{ shop.name }}</span>
+        {%- endif -%}
+      </a>
+      <p class="site-footer__tagline">{{ section.settings.tagline | escape }}</p>
+
+      <ul class="site-footer__social">
+        {%- if settings.social_instagram != blank -%}
+          <li><a href="{{ settings.social_instagram }}" rel="noopener" target="_blank" aria-label="{{ 'general.social.instagram' | t }}">{% render 'icon-instagram' %}</a></li>
+        {%- endif -%}
+        {%- if settings.social_facebook != blank -%}
+          <li><a href="{{ settings.social_facebook }}" rel="noopener" target="_blank" aria-label="{{ 'general.social.facebook' | t }}">{% render 'icon-facebook' %}</a></li>
+        {%- endif -%}
+        {%- if settings.social_tiktok != blank -%}
+          <li><a href="{{ settings.social_tiktok }}" rel="noopener" target="_blank" aria-label="{{ 'general.social.tiktok' | t }}">{% render 'icon-tiktok' %}</a></li>
+        {%- endif -%}
+      </ul>
+    </div>
+
+    {%- assign menus = 'menu_shop,menu_help,menu_company' | split: ',' -%}
+    {%- assign headings = 'Shop,Help,Company' | split: ',' -%}
+    {%- for handle_setting in menus -%}
+      {%- assign linklist = linklists[section.settings[handle_setting]] -%}
+      {%- if linklist.links.size > 0 -%}
+        <div class="site-footer__col">
+          <h3 class="site-footer__heading">{{ headings[forloop.index0] }}</h3>
+          <ul class="site-footer__menu">
+            {%- for link in linklist.links -%}
+              <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+            {%- endfor -%}
+          </ul>
+        </div>
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
+
+  <div class="container site-footer__bottom">
+    <p>&copy; {{ 'now' | date: '%Y' }} {{ shop.name }}. All rights reserved.</p>
+    <ul class="site-footer__legal">
+      <li><a href="{{ routes.root_url }}policies/privacy-policy">Privacy</a></li>
+      <li><a href="{{ routes.root_url }}policies/terms-of-service">Terms</a></li>
+      <li><a href="{{ routes.root_url }}policies/refund-policy">Refunds</a></li>
+    </ul>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Footer",
+  "settings": [
+    {
+      "type": "text",
+      "id": "tagline",
+      "label": "Tagline",
+      "default": "Practical, everyday accessories for the pets we love."
+    },
+    {
+      "type": "link_list",
+      "id": "menu_shop",
+      "label": "Shop menu",
+      "default": "footer-shop"
+    },
+    {
+      "type": "link_list",
+      "id": "menu_help",
+      "label": "Help menu",
+      "default": "footer-help"
+    },
+    {
+      "type": "link_list",
+      "id": "menu_company",
+      "label": "Company menu",
+      "default": "footer-company"
+    }
+  ]
+}
+{% endschema %}

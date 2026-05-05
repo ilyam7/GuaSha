@@ -1,0 +1,28 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product"
+    },
+    "related": {
+      "type": "featured-collection",
+      "settings": {
+        "eyebrow": "You may also like",
+        "heading": "More everyday essentials",
+        "description": "",
+        "products_to_show": 4,
+        "show_view_all": true
+      }
+    },
+    "trust": {
+      "type": "trust-badges",
+      "blocks": {
+        "b1": { "type": "badge", "settings": { "icon": "shipping", "title": "Free shipping over $40", "body": "Fast, tracked delivery on qualifying orders." } },
+        "b2": { "type": "badge", "settings": { "icon": "returns", "title": "30-day easy returns", "body": "No-fuss returns within 30 days." } },
+        "b3": { "type": "badge", "settings": { "icon": "secure", "title": "Secure checkout", "body": "Encrypted payments. Your details stay safe." } }
+      },
+      "block_order": ["b1", "b2", "b3"],
+      "settings": { "heading": "", "description": "", "background": "#F1EFE8" }
+    }
+  },
+  "order": ["main", "trust", "related"]
+}

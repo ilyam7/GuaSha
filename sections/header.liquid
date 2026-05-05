@@ -1,0 +1,93 @@
+<header class="site-header" data-site-header>
+  <div class="container site-header__inner">
+    <button
+      class="site-header__menu-toggle"
+      type="button"
+      aria-controls="mobile-nav"
+      aria-expanded="false"
+      data-menu-toggle
+    >
+      <span class="visually-hidden">{{ 'accessibility.menu' | t }}</span>
+      {% render 'icon-menu' %}
+    </button>
+
+    <a class="site-header__logo" href="{{ routes.root_url }}">
+      {%- if settings.logo != blank -%}
+        <img
+          src="{{ settings.logo | image_url: width: 480 }}"
+          alt="{{ shop.name | escape }}"
+          width="{{ settings.logo_width }}"
+          height="auto"
+          loading="eager"
+          style="max-width: {{ settings.logo_width }}px;"
+        >
+      {%- else -%}
+        <span class="site-header__wordmark">{{ shop.name }}</span>
+      {%- endif -%}
+    </a>
+
+    <nav class="site-nav" aria-label="Primary">
+      <ul class="site-nav__list">
+        {%- for link in linklists[section.settings.menu].links -%}
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="{{ link.url }}">{{ link.title }}</a>
+            {%- if link.links.size > 0 -%}
+              <ul class="site-nav__submenu">
+                {%- for child in link.links -%}
+                  <li><a href="{{ child.url }}">{{ child.title }}</a></li>
+                {%- endfor -%}
+              </ul>
+            {%- endif -%}
+          </li>
+        {%- endfor -%}
+      </ul>
+    </nav>
+
+    <div class="site-header__actions">
+      {%- if section.settings.show_search -%}
+        <a class="site-header__action" href="{{ routes.search_url }}" aria-label="{{ 'accessibility.search' | t }}">
+          {% render 'icon-search' %}
+        </a>
+      {%- endif -%}
+
+      {%- if shop.customer_accounts_enabled -%}
+        <a class="site-header__action" href="{{ routes.account_url }}" aria-label="{{ 'customer.account' | t }}">
+          {% render 'icon-account' %}
+        </a>
+      {%- endif -%}
+
+      <a class="site-header__action site-header__cart" href="{{ routes.cart_url }}" aria-label="{{ 'accessibility.cart' | t }}">
+        {% render 'icon-cart' %}
+        <span class="site-header__cart-count" data-cart-count>{{ cart.item_count }}</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="mobile-nav" id="mobile-nav" data-mobile-nav hidden>
+    <ul class="mobile-nav__list">
+      {%- for link in linklists[section.settings.menu].links -%}
+        <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+      {%- endfor -%}
+    </ul>
+  </div>
+</header>
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Main menu",
+      "default": "main-menu"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_search",
+      "label": "Show search icon",
+      "default": true
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,20 @@
+<section class="section">
+  <div class="container container--narrow">
+    <h1 class="section__heading" style="text-align:center;">{{ 'customer.log_in' | t }}</h1>
+    {% form 'customer_login' %}
+      {{ form.errors | default_errors }}
+      <div class="form-row">
+        <label for="CustomerEmail">Email</label>
+        <input type="email" name="customer[email]" id="CustomerEmail" required>
+      </div>
+      <div class="form-row">
+        <label for="CustomerPassword">Password</label>
+        <input type="password" name="customer[password]" id="CustomerPassword" required>
+      </div>
+      <button type="submit" class="btn btn--primary btn--block">{{ 'customer.log_in' | t }}</button>
+      <p style="text-align:center; margin-top:16px;">
+        <a href="{{ routes.account_register_url }}">{{ 'customer.register' | t }}</a>
+      </p>
+    {% endform %}
+  </div>
+</section>

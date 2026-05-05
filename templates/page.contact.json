@@ -1,0 +1,12 @@
+{
+  "sections": {
+    "main": {
+      "type": "contact-form",
+      "settings": {
+        "heading": "Contact us",
+        "subheading": "Questions, sizing help, or order updates — we're here. We typically reply within one business day."
+      }
+    }
+  },
+  "order": ["main"]
+}

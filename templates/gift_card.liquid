@@ -1,0 +1,13 @@
+<div class="container container--narrow" style="padding: 80px 24px; text-align:center;">
+  <h1 class="section__heading">A gift from {{ shop.name }}</h1>
+  <p>Worth {{ gift_card.initial_value | money }}{% if gift_card.expired %} — expired{% endif %}</p>
+
+  <div style="margin: 32px 0; padding: 32px; border: 1px dashed var(--color-border); border-radius: var(--radius);">
+    <p style="font-family: monospace; font-size: 1.4rem; letter-spacing: 0.06em;">{{ gift_card.code | format_code }}</p>
+    {%- if gift_card.enabled and gift_card.balance > 0 -%}
+      <p>Balance: {{ gift_card.balance | money }}</p>
+    {%- endif -%}
+  </div>
+
+  <a class="btn btn--primary" href="{{ shop.url }}">Shop now</a>
+</div>

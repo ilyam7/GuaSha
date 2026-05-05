@@ -1,0 +1,29 @@
+<section class="section">
+  <div class="container container--narrow">
+    <header class="section__header" style="text-align:left;">
+      <p class="section__eyebrow">Our story</p>
+      <h1 class="section__heading">{{ page.title | default: 'About PawEssentials' }}</h1>
+    </header>
+
+    {%- if page.content != blank -%}
+      <div class="rte">{{ page.content }}</div>
+    {%- else -%}
+      <div class="rte">
+        <p>PawEssentials began with a simple frustration: shopping for everyday pet accessories felt either overwhelming, overpriced, or full of guesswork. We wanted a place where the basics — collars, leashes, bowls, beds, carriers, grooming tools — were chosen carefully, made well, and priced fairly.</p>
+        <p>We test every product with real pets and their humans before it lands on our shelves. If something doesn't hold up to daily life, it doesn't make the cut. The result is a tightly curated catalog of essentials that solve real problems, without the noise.</p>
+        <h2>What we stand for</h2>
+        <ul>
+          <li><strong>Practical first.</strong> Every product earns its place by being something you'll actually reach for every day.</li>
+          <li><strong>Built to last.</strong> Materials and construction we'd trust with our own pets, backed by a 30-day return promise.</li>
+          <li><strong>Fair pricing.</strong> No inflated markups. We're upfront about cost and quality.</li>
+          <li><strong>Real support.</strong> A small team that replies to your emails — usually the same day.</li>
+        </ul>
+        <p>Thanks for trusting us with your companion's everyday gear. We don't take it lightly.</p>
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{ "name": "About page", "settings": [] }
+{% endschema %}

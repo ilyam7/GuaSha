@@ -1,0 +1,70 @@
+{
+  "general": {
+    "meta": {
+      "tags": "Tagged \"{{ tags }}\"",
+      "page": "Page {{ page }}"
+    },
+    "search": {
+      "placeholder": "Search products",
+      "submit": "Search",
+      "no_results": "No results for “{{ terms }}”. Check the spelling or try another search."
+    },
+    "pagination": {
+      "previous": "Previous",
+      "next": "Next"
+    },
+    "newsletter": {
+      "label": "Email",
+      "placeholder": "you@example.com",
+      "submit": "Subscribe",
+      "success": "Thanks for subscribing."
+    },
+    "social": {
+      "instagram": "Instagram",
+      "facebook": "Facebook",
+      "tiktok": "TikTok"
+    }
+  },
+  "accessibility": {
+    "skip_to_content": "Skip to content",
+    "menu": "Menu",
+    "close": "Close",
+    "cart": "Cart",
+    "search": "Search",
+    "previous_slide": "Previous slide",
+    "next_slide": "Next slide"
+  },
+  "products": {
+    "product": {
+      "add_to_cart": "Add to cart",
+      "sold_out": "Sold out",
+      "unavailable": "Unavailable",
+      "from_price": "From {{ price }}",
+      "sale": "Sale",
+      "quantity": "Quantity",
+      "description": "Description",
+      "vendor": "Vendor"
+    },
+    "facets": {
+      "filter": "Filter",
+      "sort_by": "Sort by",
+      "clear": "Clear all"
+    }
+  },
+  "cart": {
+    "title": "Your cart",
+    "empty": "Your cart is empty.",
+    "continue_shopping": "Continue shopping",
+    "subtotal": "Subtotal",
+    "shipping_note": "Shipping and taxes calculated at checkout.",
+    "checkout": "Check out",
+    "remove": "Remove",
+    "quantity": "Quantity"
+  },
+  "customer": {
+    "account": "Account",
+    "log_in": "Log in",
+    "log_out": "Log out",
+    "register": "Create account"
+  }
+}
